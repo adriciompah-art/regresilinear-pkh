@@ -1547,9 +1547,9 @@ elif menu_terpilih == MENU_ITEMS[6]:
         <div class="profile-info">
             <h3>Maria Sintia Imakulata Bau</h3>
             <div class="profile-meta">
-                <span>🪪 NIM/NPM: 00000000</span>
+                <span>🪪 NIM/NPM: 51210011</span>
                 <span>📍 Universitas Timor</span>
-                <span>✉️ email@contoh.com</span>
+                <span>✉️ sintiabau28@gmail.com</span>
             </div>
         </div>
     </div>
@@ -1563,18 +1563,18 @@ elif menu_terpilih == MENU_ITEMS[6]:
             <div class="dosen-grid">
                 <div class="dosen-card">
                     <div class="role">Pembimbing I</div>
-                    <div class="name">Nama Dosen Pembimbing I</div>
-                    <div class="detail">NIP: -</div>
+                    <div class="name">Krisantus J.Tey Seran, S.T.,M.T</div>
+                    <div class="detail">NIP: 19851025  201903 1 009</div>
                 </div>
                 <div class="dosen-card">
                     <div class="role">Pembimbing II</div>
-                    <div class="name">Nama Dosen Pembimbing II</div>
-                    <div class="detail">NIP: -</div>
+                    <div class="name">Debora Chrisinta S.SI., M.SI</div>
+                    <div class="detail">NIP: 199406 292022032014</div>
                 </div>
                 <div class="dosen-card">
                     <div class="role">Penguji</div>
-                    <div class="name">Nama Dosen Penguji</div>
-                    <div class="detail">NIP: -</div>
+                    <div class="name">Regolinda Maneno, S.Si., M.Si</div>
+                    <div class="detail">NIP: 199310242024212043</div>
                 </div>
             </div>
         </div>

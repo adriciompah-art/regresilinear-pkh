@@ -159,39 +159,112 @@ st.markdown("""
     }
     ::placeholder { color: #64748B !important; opacity: 1 !important; }
 
-    /* ═══ TABS (menu navigasi) ═══ */
-    .stTabs [data-baseweb="tab-list"] {
-        background: rgba(14,165,233,0.06);
-        border: 1px solid rgba(14,165,233,0.18);
-        border-radius: 16px;
-        padding: 6px; gap: 4px;
-        flex-wrap: wrap;
-        justify-content: center;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
-        margin-bottom: 0.4rem;
+    /* ═══ MENU NAVIGASI DI SIDEBAR (pengganti tab di halaman utama) ═══ */
+    [data-testid="stSidebar"] .stRadio [role="radiogroup"] {
+        gap: 0.35rem;
     }
-    .stTabs [data-baseweb="tab"] {
-        background: transparent;
-        border-radius: 11px;
-        color: #94A3B8 !important;
-        font-weight: 600; font-size: 0.82rem;
-        padding: 0.6rem 1.15rem; border: none;
-        white-space: nowrap;
-        transition: all 0.18s ease;
+    [data-testid="stSidebar"] .stRadio [role="radiogroup"] label {
+        background: rgba(14,165,233,0.05) !important;
+        border: 1px solid rgba(14,165,233,0.16) !important;
+        border-radius: 10px !important;
+        padding: 0.55rem 0.85rem !important;
+        width: 100%;
+        transition: all 0.15s ease;
+        cursor: pointer;
     }
-    .stTabs [aria-selected="true"] {
+    [data-testid="stSidebar"] .stRadio [role="radiogroup"] label:hover {
+        background: rgba(14,165,233,0.13) !important;
+        border-color: rgba(56,189,248,0.45) !important;
+    }
+    [data-testid="stSidebar"] .stRadio [role="radiogroup"] label:has(input:checked) {
         background: linear-gradient(135deg, #0284C7, #4F46E5) !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 16px rgba(14,165,233,0.35);
+    }
+    [data-testid="stSidebar"] .stRadio [role="radiogroup"] label:has(input:checked) p,
+    [data-testid="stSidebar"] .stRadio [role="radiogroup"] label:has(input:checked) [data-testid="stMarkdownContainer"] {
         color: #FFFFFF !important;
-        box-shadow: 0 4px 18px rgba(14,165,233,0.35);
+        font-weight: 700 !important;
     }
-    .stTabs [data-baseweb="tab"]:hover:not([aria-selected="true"]) {
-        background: rgba(14,165,233,0.12) !important;
-        color: #7DD3FC !important;
-        transform: translateY(-1px);
+    [data-testid="stSidebar"] .stRadio [role="radiogroup"] p {
+        color: #CBD5E1 !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
     }
-    .stTabs [data-baseweb="tab-highlight"] { background: transparent !important; }
-    .stTabs [data-baseweb="tab-border"] { display: none !important; }
-    .stTabs [data-baseweb="tab-panel"] { padding-top: 1.6rem; }
+
+    /* ═══ TEKS UMUM DI AREA UTAMA — kontras di atas latar gelap ═══ */
+    section.main [data-testid="stMarkdownContainer"] h1,
+    section.main [data-testid="stMarkdownContainer"] h2,
+    section.main [data-testid="stMarkdownContainer"] h3,
+    section.main [data-testid="stMarkdownContainer"] h4,
+    section.main [data-testid="stMarkdownContainer"] h5,
+    section.main [data-testid="stMarkdownContainer"] h6,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] h1,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] h2,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] h3,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] h4,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] h5,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] h6 {
+        color: #F1F5F9 !important;
+        font-family: 'Space Grotesk', sans-serif !important;
+    }
+    section.main [data-testid="stMarkdownContainer"] p,
+    section.main [data-testid="stMarkdownContainer"] li,
+    section.main [data-testid="stMarkdownContainer"] span,
+    section.main [data-testid="stMarkdownContainer"] strong,
+    section.main [data-testid="stMarkdownContainer"] em,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] li,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] span,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] strong,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] em {
+        color: #CBD5E1 !important;
+    }
+    [data-testid="stCaptionContainer"] p,
+    [data-testid="stCaptionContainer"] { color: #64748B !important; }
+    [data-testid="stExpander"] summary,
+    .streamlit-expanderHeader p,
+    .streamlit-expanderHeader [data-testid="stMarkdownContainer"] p {
+        color: #BAE6FD !important; font-weight: 600 !important;
+    }
+    [data-testid="stExpanderDetails"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stExpanderDetails"] [data-testid="stMarkdownContainer"] li {
+        color: #CBD5E1 !important;
+    }
+    section.main label, [data-testid="stMain"] label,
+    section.main [data-testid="stWidgetLabel"] p, [data-testid="stMain"] [data-testid="stWidgetLabel"] p {
+        color: #7DD3FC !important; font-weight: 600 !important; font-size: 0.85rem !important;
+    }
+    [data-testid="stText"], .stText, [data-testid="stJson"] {
+        color: #E2E8F0 !important;
+        background: rgba(14,165,233,0.05) !important;
+        border-radius: 10px !important;
+    }
+    [data-testid="stJson"] * { color: #E2E8F0 !important; }
+
+    /* ═══ SELECTBOX / MULTISELECT — berlaku di seluruh halaman, bukan cuma sidebar ═══ */
+    .stSelectbox > div > div, .stMultiSelect > div > div {
+        background: #1E2D45 !important;
+        border: 1px solid rgba(56,189,248,0.4) !important;
+        border-radius: 10px !important;
+    }
+    .stSelectbox [data-baseweb="select"] span,
+    .stMultiSelect [data-baseweb="select"] span,
+    .stSelectbox div, .stMultiSelect div {
+        color: #F1F5F9 !important;
+    }
+    .stSelectbox svg, .stMultiSelect svg { fill: #7DD3FC !important; }
+    .stMultiSelect [data-baseweb="tag"] {
+        background: rgba(14,165,233,0.28) !important;
+        border: 1px solid rgba(14,165,233,0.5) !important;
+    }
+    .stMultiSelect [data-baseweb="tag"] span { color: #F1F5F9 !important; }
+
+    /* ═══ RADIO / CHECKBOX (di luar sidebar) ═══ */
+    .stRadio [data-testid="stMarkdownContainer"] p,
+    .stCheckbox [data-testid="stMarkdownContainer"] p {
+        color: #E2E8F0 !important;
+    }
 
     /* ═══ LANDING PAGE (halaman utama / welcome) ═══ */
     .landing-wrap {
@@ -352,6 +425,69 @@ st.markdown("""
         background: rgba(14,165,233,0.04) !important;
         border: 1px solid rgba(14,165,233,0.18) !important;
         border-radius: 12px !important;
+    }
+
+    /* ═══ CUSTOM DATA TABLE (pengganti tampilan bawaan ala Colab) ═══ */
+    .data-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        border: 1px solid rgba(14,165,233,0.18);
+        border-radius: 12px;
+        background: rgba(14,165,233,0.04);
+        margin: 0.6rem 0 1rem 0;
+    }
+    .data-table-wrap::-webkit-scrollbar { height: 8px; }
+    .data-table-wrap::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.3); border-radius: 8px; }
+    .data-table-wrap::-webkit-scrollbar-track { background: transparent; }
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+    .data-table thead tr { background: rgba(2,132,199,0.2); }
+    .data-table th {
+        position: sticky; top: 0;
+        padding: 0.7rem 1rem; text-align: left;
+        font-weight: 700; font-size: 0.72rem;
+        letter-spacing: 0.08em; text-transform: uppercase;
+        color: #BAE6FD; border-bottom: 1px solid rgba(14,165,233,0.25);
+        background: #0D1526;
+    }
+    .data-table td {
+        padding: 0.6rem 1rem; color: #E2E8F0;
+        border-bottom: 1px solid rgba(14,165,233,0.08);
+        font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;
+    }
+    .data-table tbody tr:nth-child(even) { background: rgba(14,165,233,0.03); }
+    .data-table tbody tr:hover { background: rgba(14,165,233,0.09); }
+    .data-table td:first-child { color: #7DD3FC; font-weight: 700; }
+    .data-table-caption {
+        padding: 0.5rem 1rem 0.7rem 1rem;
+        color: #64748B; font-size: 0.78rem;
+        border-top: 1px solid rgba(14,165,233,0.1);
+    }
+
+    /* ═══ KV CHIPS (pengganti st.write(dict) / JSON viewer bawaan) ═══ */
+    .kv-chip-wrap {
+        display: flex; flex-wrap: wrap; gap: 0.5rem;
+        margin: 0.5rem 0 1rem 0;
+    }
+    .kv-chip {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        background: #0D1526;
+        border: 1px solid rgba(14,165,233,0.25);
+        border-radius: 8px;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+    }
+    .kv-chip .kv-key { color: #94A3B8; }
+    .kv-chip .kv-arrow { color: #38BDF8; }
+    .kv-chip .kv-val {
+        color: #7DD3FC; font-weight: 700;
+        font-family: 'JetBrains Mono', monospace;
+        background: rgba(14,165,233,0.12);
+        padding: 0.05rem 0.4rem; border-radius: 4px;
     }
 
     /* ═══ EXPANDER ═══ */
@@ -516,6 +652,93 @@ st.markdown("""
         color: #475569; font-size: 0.78rem;
     }
     .footer span { color: #0EA5E9; }
+
+    /* ═══════════════════════════════════════════════════════════
+       TAB "TENTANG" — profil, identitas & informasi sistem
+       (selaras dengan tema sky/indigo/emerald di atas)
+       ═══════════════════════════════════════════════════════════ */
+    .tentang-hero {
+        position: relative; overflow: hidden;
+        border-radius: 24px; padding: 2.2rem 2.4rem; margin-bottom: 1.6rem;
+        background: linear-gradient(135deg,
+            rgba(2,132,199,0.16) 0%, rgba(79,70,229,0.12) 55%, rgba(16,185,129,0.10) 100%);
+        border: 1px solid rgba(14,165,233,0.25);
+        display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap;
+    }
+    .tentang-hero .th-icon {
+        width: 64px; height: 64px; border-radius: 18px; flex-shrink: 0;
+        background: linear-gradient(135deg, #0284C7, #4F46E5);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.8rem; box-shadow: 0 8px 26px rgba(14,165,233,0.35);
+    }
+    .tentang-hero h1 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.7rem; font-weight: 800; color: #F1F5F9; margin: 0 0 0.3rem;
+    }
+    .tentang-hero p { color: #94A3B8; font-size: 0.92rem; margin: 0; line-height: 1.6; }
+    .tentang-chip {
+        display: inline-block; margin-top: 0.6rem;
+        background: rgba(14,165,233,0.1); border: 1px solid rgba(14,165,233,0.25);
+        color: #7DD3FC; font-size: 0.72rem; font-weight: 600;
+        padding: 0.25rem 0.8rem; border-radius: 100px;
+    }
+
+    .profile-card {
+        display: flex; align-items: center; gap: 1.2rem;
+        padding: 1.4rem 1.6rem; border-radius: 18px; margin-bottom: 1rem;
+        background: linear-gradient(135deg, rgba(13,21,38,0.9), rgba(14,165,233,0.05));
+        border: 1px solid rgba(14,165,233,0.2);
+    }
+    .profile-avatar {
+        width: 68px; height: 68px; border-radius: 50%; flex-shrink: 0;
+        background: linear-gradient(135deg, #10B981, #0EA5E9);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.6rem; font-weight: 800; color: #06231d;
+        box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
+    }
+    .profile-info h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 800; color: #F1F5F9; margin: 0 0 0.35rem; }
+    .profile-meta { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; font-size: 0.8rem; color: #94A3B8; }
+    .profile-meta span { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+    .about-card {
+        display: flex; gap: 0.9rem; align-items: flex-start;
+        padding: 1.1rem 1.3rem; border-radius: 14px; margin-bottom: 0.7rem;
+        background: rgba(13,21,38,0.55); border: 1px solid rgba(14,165,233,0.15);
+        border-left: 3px solid var(--a-color, #0EA5E9);
+    }
+    .about-card .ic {
+        font-size: 1.2rem; width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+        background: rgba(14,165,233,0.1); display: flex; align-items: center; justify-content: center;
+    }
+    .about-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--a-color, #F1F5F9); margin: 0 0 0.4rem; }
+    .about-card p { font-size: 0.83rem; color: #94A3B8; line-height: 1.7; margin: 0; }
+    .about-card ul { margin: 0; padding-left: 0; list-style: none; }
+    .about-card li {
+        font-size: 0.83rem; color: #94A3B8; line-height: 1.9; padding-left: 1.4rem; position: relative;
+    }
+    .about-card li::before {
+        content: '✓'; position: absolute; left: 0; top: 2px;
+        color: #10B981; font-weight: 700; background: rgba(16,185,129,0.15);
+        width: 15px; height: 15px; border-radius: 50%;
+        display: inline-flex; align-items: center; justify-content: center; font-size: 0.6rem;
+    }
+
+    .dosen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin-top: 0.7rem; }
+    .dosen-card {
+        background: rgba(13,21,38,0.6); border: 1px solid rgba(14,165,233,0.18);
+        border-radius: 14px; padding: 1rem 1.1rem; transition: all 0.2s ease;
+    }
+    .dosen-card:hover { border-color: rgba(56,189,248,0.4); transform: translateY(-2px); }
+    .dosen-card .role { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #F59E0B; margin-bottom: 0.35rem; }
+    .dosen-card .name { font-size: 0.95rem; font-weight: 700; color: #F1F5F9; }
+    .dosen-card .detail { font-size: 0.75rem; color: #64748B; margin-top: 0.25rem; }
+
+    .step-flow { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.9rem 0; }
+    .step-pill {
+        font-size: 0.75rem; font-weight: 600; padding: 0.45rem 0.85rem; border-radius: 100px;
+        background: rgba(14,165,233,0.07); border: 1px solid rgba(14,165,233,0.2); color: #94A3B8;
+    }
+    .step-pill b { color: #38BDF8; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -663,6 +886,53 @@ def style_plotly(fig, title=None):
     fig.update_xaxes(gridcolor="rgba(14,165,233,0.10)", zerolinecolor="rgba(14,165,233,0.15)", color="#94A3B8")
     fig.update_yaxes(gridcolor="rgba(14,165,233,0.10)", zerolinecolor="rgba(14,165,233,0.15)", color="#94A3B8")
     return fig
+
+
+def render_kv_chips(mapping: dict):
+    """Render dict sebagai daftar chip 'key → value' bertema gelap.
+    Pengganti st.write(dict), yang dirender Streamlit lewat komponen JSON
+    viewer bawaan dengan tema terkunci terang (tidak bisa ditimpa CSS
+    halaman) sehingga tulisannya jadi nyaris tak terbaca di atas latar gelap."""
+    items = "".join(
+        f'<span class="kv-chip"><span class="kv-key">{k}</span>'
+        f'<span class="kv-arrow">→</span><span class="kv-val">{v}</span></span>'
+        for k, v in mapping.items()
+    )
+    st.markdown(f'<div class="kv-chip-wrap">{items}</div>', unsafe_allow_html=True)
+
+
+def render_data_table(df: pd.DataFrame, max_rows: int | None = None, caption: str | None = None):
+    """Render DataFrame sebagai tabel HTML bertema gelap (selaras dengan gaya
+    'batch-table'/'calc-table' di regresi.py), menggantikan tampilan bawaan
+    st.dataframe yang terlihat seperti tabel Colab (grid putih generik)."""
+    tampil = df.head(max_rows) if max_rows else df
+    total_baris = len(df)
+
+    def _fmt(v):
+        if isinstance(v, float):
+            return f"{v:,.2f}"
+        if pd.isna(v):
+            return "-"
+        return str(v)
+
+    header_html = "".join(f"<th>{col}</th>" for col in tampil.columns)
+    rows_html = []
+    for _, row in tampil.iterrows():
+        cells = "".join(f"<td>{_fmt(v)}</td>" for v in row)
+        rows_html.append(f"<tr>{cells}</tr>")
+
+    ket = caption or f"Menampilkan {len(tampil)} dari {total_baris} baris · {len(df.columns)} kolom"
+
+    html = f"""
+    <div class="data-table-wrap">
+        <table class="data-table">
+            <thead><tr>{header_html}</tr></thead>
+            <tbody>{''.join(rows_html)}</tbody>
+        </table>
+        <div class="data-table-caption">{ket}</div>
+    </div>
+    """
+    st.markdown(html, unsafe_allow_html=True)
 
 
 PENDIDIKAN_ORDER = ['Tidak Sekolah', 'Masih SD/sederajat', 'Tidak Tamat SD', 'Tamat SD',
@@ -863,6 +1133,14 @@ def fit_statsmodels_logit(X, y, train_idx, imputer, scaler):
 
 
 # ======================================================================
+# DAFTAR MENU (ditampilkan sebagai navigasi di sidebar kiri)
+# ======================================================================
+MENU_ITEMS = [
+    "🔍 Eksplorasi Data", "🧹 Preprocessing & Encoding", "🤖 Training K-Fold",
+    "📈 Interpretasi Model", "✅ Evaluasi Model Terbaik", "🔮 Prediksi Data Baru", "ℹ️ Tentang"
+]
+
+# ======================================================================
 # SIDEBAR - PENGATURAN GLOBAL
 # ======================================================================
 with st.sidebar:
@@ -878,6 +1156,12 @@ with st.sidebar:
 
     st.button("🏠 Kembali ke Beranda", type="secondary", width='stretch',
                on_click=_kembali_beranda, key="btn_kembali_beranda")
+
+    st.markdown('<span class="sb-sect">🧭 Menu Analisis</span>', unsafe_allow_html=True)
+    menu_terpilih = st.radio(
+        "Navigasi menu", MENU_ITEMS,
+        label_visibility="collapsed", key="menu_navigasi"
+    )
 
     st.markdown('<span class="sb-sect">📁 Sumber Data</span>', unsafe_allow_html=True)
     uploaded = st.file_uploader("Upload Data Kemiskinan (.xlsx)", type=["xlsx"])
@@ -949,18 +1233,23 @@ st.success(f"Data dimuat dari: **{sumber_data}** — {df_raw.shape[0]} baris, {d
 # Bersihkan data (dijalankan setiap kali data berubah)
 df_clean, laporan_bersih = bersihkan_data(df_raw)
 
+# Encoding fitur dijalankan tak bersyarat (bukan hanya saat menu "Preprocessing &
+# Encoding" dipilih) supaya menu Training/Interpretasi/Evaluasi/Prediksi tetap bisa
+# langsung dipakai dari sidebar, tanpa harus mampir dulu ke menu Preprocessing.
+X_full, encoder_dict = encode_fitur(df_clean)
+y_full = encode_target(df_clean)
+st.session_state["X_full"] = X_full
+st.session_state["y_full"] = y_full
+st.session_state["encoder_dict"] = encoder_dict
+st.session_state["df_clean"] = df_clean
+
 # Simpan ke session_state supaya antar-tab konsisten
 st.session_state.setdefault("trained", False)
 
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "🔍 Eksplorasi Data", "🧹 Preprocessing & Encoding", "🤖 Training K-Fold",
-    "📈 Interpretasi Model", "✅ Evaluasi Model Terbaik", "🔮 Prediksi Data Baru"
-])
-
 # ----------------------------------------------------------------------
-# TAB 1 — EKSPLORASI DATA
+# MENU 1 — EKSPLORASI DATA
 # ----------------------------------------------------------------------
-with tab1:
+if menu_terpilih == MENU_ITEMS[0]:
     st.markdown('<div class="sec-title">🔍 Ringkasan Data</div>', unsafe_allow_html=True)
     c1, c2, c3 = st.columns(3)
     c1.metric("Jumlah Baris (mentah)", df_raw.shape[0])
@@ -981,8 +1270,10 @@ with tab1:
                                             default=sorted(df_clean[kolom].unique().tolist()), key=f"filter_{kolom}")
         df_filtered = df_filtered[df_filtered[kolom].isin(pilihan)]
 
-    st.caption(f"Menampilkan {df_filtered.shape[0]} dari {df_clean.shape[0]} baris setelah filter.")
-    st.dataframe(df_filtered.head(20), width='stretch')
+    render_data_table(
+        df_filtered, max_rows=20,
+        caption=f"Menampilkan {min(20, df_filtered.shape[0])} dari {df_filtered.shape[0]} baris (total sebelum filter: {df_clean.shape[0]} baris)."
+    )
 
     st.markdown("#### Distribusi Variabel Kategorikal")
     kolom_pilih = st.selectbox("Pilih variabel", KOLOM_KATEGORIKAL)
@@ -1002,31 +1293,26 @@ with tab1:
     st.plotly_chart(fig_pie, width='stretch')
 
 # ----------------------------------------------------------------------
-# TAB 2 — PREPROCESSING & ENCODING
+# MENU 2 — PREPROCESSING & ENCODING
 # ----------------------------------------------------------------------
-with tab2:
+elif menu_terpilih == MENU_ITEMS[1]:
     st.markdown('<div class="sec-title">🧹 Encoding Fitur</div>', unsafe_allow_html=True)
-    X_full, encoder_dict = encode_fitur(df_clean)
-    y_full = encode_target(df_clean)
-
-    st.session_state["X_full"] = X_full
-    st.session_state["y_full"] = y_full
-    st.session_state["encoder_dict"] = encoder_dict
-    st.session_state["df_clean"] = df_clean
 
     colA, colB = st.columns(2)
     with colA:
         st.markdown("**Ordinal Encoding**")
-        st.write("Pendidikan Kepala Keluarga →", PENDIDIKAN_MAPPING)
-        st.write("Daya Listrik Terpasang →", LISTRIK_MAPPING)
+        st.markdown("Pendidikan Kepala Keluarga →")
+        render_kv_chips(PENDIDIKAN_MAPPING)
+        st.markdown("Daya Listrik Terpasang →")
+        render_kv_chips(LISTRIK_MAPPING)
     with colB:
         st.markdown("**Label Encoding (nominal)**")
-        st.write(", ".join(KOLOM_NOMINAL))
+        st.markdown(", ".join(KOLOM_NOMINAL))
 
     st.markdown("#### Contoh Data Setelah Encoding")
     df_encoded_preview = X_full.copy()
     df_encoded_preview['Penerima PKH'] = y_full
-    st.dataframe(df_encoded_preview.head(15), width='stretch')
+    render_data_table(df_encoded_preview, max_rows=15)
 
     buf = io.BytesIO()
     with pd.ExcelWriter(buf, engine="openpyxl") as writer:
@@ -1036,9 +1322,9 @@ with tab2:
                         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
 # ----------------------------------------------------------------------
-# TAB 3 — TRAINING K-FOLD
+# MENU 3 — TRAINING K-FOLD
 # ----------------------------------------------------------------------
-with tab3:
+elif menu_terpilih == MENU_ITEMS[2]:
     st.markdown(f'<div class="sec-title">🤖 K-Fold Cross Validation (k={n_splits}) + SMOTE + Regresi Logistik</div>', unsafe_allow_html=True)
 
     if latih_button or st.session_state.get("trained", False):
@@ -1092,9 +1378,9 @@ with tab3:
         st.info("Klik **🚀 Latih / Latih Ulang Model** di sidebar untuk menjalankan K-Fold Cross Validation.")
 
 # ----------------------------------------------------------------------
-# TAB 4 — INTERPRETASI MODEL (statsmodels)
+# MENU 4 — INTERPRETASI MODEL (statsmodels)
 # ----------------------------------------------------------------------
-with tab4:
+elif menu_terpilih == MENU_ITEMS[3]:
     st.markdown('<div class="sec-title">📈 Pengaruh Variabel terhadap Target (Koefisien & p-value)</div>', unsafe_allow_html=True)
     if not st.session_state.get("trained", False):
         st.info("Latih model terlebih dahulu di tab **Training K-Fold**.")
@@ -1126,9 +1412,9 @@ with tab4:
             st.text(str(result.summary()))
 
 # ----------------------------------------------------------------------
-# TAB 5 — EVALUASI MODEL TERBAIK
+# MENU 5 — EVALUASI MODEL TERBAIK
 # ----------------------------------------------------------------------
-with tab5:
+elif menu_terpilih == MENU_ITEMS[4]:
     st.markdown('<div class="sec-title">✅ Evaluasi Model pada Data Uji (Fold Terbaik)</div>', unsafe_allow_html=True)
     if not st.session_state.get("trained", False):
         st.info("Latih model terlebih dahulu di tab **Training K-Fold**.")
@@ -1173,9 +1459,9 @@ with tab5:
         st.dataframe(pd.DataFrame(report_dict).transpose().style.format("{:.4f}"), width='stretch')
 
 # ----------------------------------------------------------------------
-# TAB 6 — PREDIKSI DATA BARU
+# MENU 6 — PREDIKSI DATA BARU
 # ----------------------------------------------------------------------
-with tab6:
+elif menu_terpilih == MENU_ITEMS[5]:
     st.markdown('<div class="sec-title">🔮 Prediksi pada Data Baru</div>', unsafe_allow_html=True)
     if not st.session_state.get("trained", False):
         st.info("Latih model terlebih dahulu di tab **Training K-Fold**.")
@@ -1241,6 +1527,157 @@ with tab6:
                                    title="Persentase Prediksi")
                 style_plotly(fig_pie2)
                 st.plotly_chart(fig_pie2, width='stretch')
+
+# ----------------------------------------------------------------------
+# MENU 7 — TENTANG (identitas & informasi sistem)
+# ----------------------------------------------------------------------
+elif menu_terpilih == MENU_ITEMS[6]:
+    # NOTE: Ganti seluruh placeholder di bawah ini (nama, NIM, kampus, dosen,
+    # dsb.) dengan identitas Anda yang sebenarnya.
+    st.markdown("""
+    <div class="tentang-hero">
+        <div class="th-icon">📊</div>
+        <div>
+            <h1>Tentang Sistem</h1>
+            <p>PKH Analytics · Analisis Regresi Logistik Biner untuk Status Penerima<br>
+            Bantuan PKH pada Data Kemiskinan Ekstrem</p>
+            <span class="tentang-chip">📈 Statistika Inferensial &amp; Machine Learning</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="profile-card">
+        <div class="profile-avatar">NN</div>
+        <div class="profile-info">
+            <h3>Nama Anda</h3>
+            <div class="profile-meta">
+                <span>🪪 NIM/NPM: 00000000</span>
+                <span>📍 Nama Universitas</span>
+                <span>✉️ email@contoh.com</span>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="about-card" style="--a-color:#818CF8">
+        <div class="ic">👨‍🏫</div>
+        <div style="flex:1;">
+            <h4>Dosen Pembimbing &amp; Penguji</h4>
+            <div class="dosen-grid">
+                <div class="dosen-card">
+                    <div class="role">Pembimbing I</div>
+                    <div class="name">Nama Dosen Pembimbing I</div>
+                    <div class="detail">NIP: -</div>
+                </div>
+                <div class="dosen-card">
+                    <div class="role">Pembimbing II</div>
+                    <div class="name">Nama Dosen Pembimbing II</div>
+                    <div class="detail">NIP: -</div>
+                </div>
+                <div class="dosen-card">
+                    <div class="role">Penguji</div>
+                    <div class="name">Nama Dosen Penguji</div>
+                    <div class="detail">NIP: -</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="about-card" style="--a-color:#F59E0B">
+        <div class="ic">🎯</div>
+        <div>
+            <h4>Tujuan Sistem</h4>
+            <p>Sistem ini dirancang untuk membantu proses analisis dan prediksi status penerima
+            Bantuan Program Keluarga Harapan (PKH) menggunakan model Regresi Logistik Biner.
+            Melalui sistem ini, data rumah tangga dapat diproses secara otomatis — mulai dari
+            pembersihan data, encoding fitur, pelatihan model dengan K-Fold Cross Validation
+            dan SMOTE, hingga interpretasi dan evaluasi performa model — sehingga menghasilkan
+            informasi yang mudah dianalisis sebagai dasar pengambilan keputusan.</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="about-card" style="--a-color:#10B981">
+        <div class="ic">🧮</div>
+        <div>
+            <h4>Metode Regresi Logistik Biner</h4>
+            <p>Metode yang digunakan dalam sistem ini adalah Regresi Logistik Biner, salah satu
+            algoritma supervised learning yang populer untuk klasifikasi dua kelas. Proses yang
+            dilakukan meliputi: 1) Pembersihan data dari nilai anomali dan missing value,
+            2) Encoding fitur kategorikal, 3) Pembagian data dengan K-Fold Cross Validation
+            disertai penyeimbangan kelas menggunakan SMOTE, 4) Pelatihan model Regresi Logistik,
+            5) Interpretasi koefisien &amp; signifikansi variabel dengan statsmodels, dan
+            6) Evaluasi performa model pada data uji sebelum digunakan untuk prediksi data baru.</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="about-card" style="--a-color:#0EA5E9">
+        <div class="ic">📊</div>
+        <div>
+            <p style="margin-bottom:0.5rem"><strong style="color:#F1F5F9">Manfaat Sistem</strong></p>
+            <h4 style="display:none"></h4>
+            <p style="margin-bottom:0.5rem">Hasil analisis dari sistem ini dapat digunakan untuk berbagai keperluan, antara lain:</p>
+            <ul>
+                <li>Mengidentifikasi karakteristik rumah tangga penerima maupun bukan penerima PKH</li>
+                <li>Mengetahui variabel yang paling berpengaruh terhadap status penerimaan bantuan</li>
+                <li>Membantu instansi terkait melakukan evaluasi ketepatan sasaran bantuan sosial</li>
+                <li>Mendukung perencanaan kebijakan penanggulangan kemiskinan berbasis data</li>
+                <li>Memprediksi status penerimaan PKH pada data rumah tangga baru</li>
+            </ul>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="about-card" style="--a-color:#818CF8">
+        <div class="ic">🔒</div>
+        <div>
+            <h4>Privasi &amp; Keamanan Data</h4>
+            <p>Seluruh data yang diunggah dan diproses dalam sistem ini digunakan hanya untuk
+            kebutuhan penelitian dan analisis akademik. Data hanya diproses pada sesi aplikasi
+            yang sedang berjalan dan tidak dikirim ke pihak ketiga mana pun.</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="sec-title">Alur Kerja Aplikasi</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="step-flow">
+        <span class="step-pill"><b>1.</b> Eksplorasi Data</span>
+        <span class="step-pill"><b>2.</b> Preprocessing &amp; Encoding</span>
+        <span class="step-pill"><b>3.</b> Training K-Fold</span>
+        <span class="step-pill"><b>4.</b> Interpretasi Model</span>
+        <span class="step-pill"><b>5.</b> Evaluasi Model Terbaik</span>
+        <span class="step-pill"><b>6.</b> Prediksi Data Baru</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="about-card" style="--a-color:#F1F5F9;margin-top:0.4rem">
+        <div class="ic">🛠️</div>
+        <div>
+            <h4>Teknologi</h4>
+            <p>
+            Backend/pipeline: <strong style="color:#F1F5F9">Python</strong> +
+            <strong style="color:#F1F5F9">Pandas</strong> +
+            <strong style="color:#F1F5F9">NumPy</strong> +
+            <strong style="color:#F1F5F9">scikit-learn</strong> (Logistic Regression, K-Fold CV) +
+            <strong style="color:#F1F5F9">imbalanced-learn</strong> (SMOTE) +
+            <strong style="color:#F1F5F9">statsmodels</strong> (interpretasi statistik).<br>
+            Frontend: <strong style="color:#F1F5F9">Streamlit</strong> +
+            <strong style="color:#F1F5F9">Plotly</strong>.<br>
+            Ekspor hasil ke file <strong style="color:#F1F5F9">Excel (.xlsx)</strong>.
+            </p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ======================================================================
 # FOOTER

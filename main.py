@@ -1550,10 +1550,10 @@ elif menu_terpilih == MENU_ITEMS[6]:
     <div class="profile-card">
         <div class="profile-avatar">NN</div>
         <div class="profile-info">
-            <h3>Nama Anda</h3>
+            <h3>Maria Sintia Imakulata Bau</h3>
             <div class="profile-meta">
                 <span>🪪 NIM/NPM: 00000000</span>
-                <span>📍 Nama Universitas</span>
+                <span>📍 Universitas Timor</span>
                 <span>✉️ email@contoh.com</span>
             </div>
         </div>

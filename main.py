@@ -2,11 +2,6 @@
 Interface Streamlit - Analisis Regresi Logistik Biner
 Status Penerima Bantuan PKH pada Data Kemiskinan Ekstrem
 
-Interface ini membungkus pipeline yang ada di 'regresi.py' (preprocessing,
-encoding, K-Fold Cross Validation + SMOTE + Logistic Regression, interpretasi
-model dengan statsmodels, evaluasi, dan prediksi data baru) ke dalam
-aplikasi web interaktif menggunakan Streamlit.
-
 Cara menjalankan:
     pip install -r requirements.txt
     streamlit run app.py
